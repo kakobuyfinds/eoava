@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>HubBuy spreadsheet — katalog, zdjęcia QC i wysyłka do Polski</title>
+  <meta name="description" content="Polski przewodnik HubBuy spreadsheet. Przeglądaj kategorie CAFANS, sprawdź linki do produktów, porównaj rozmiary, oceń zdjęcia QC i oblicz koszt paczki do Polski.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="HubBuy spreadsheet — katalog i poradnik po polsku">
+  <meta property="og:description" content="Kategorie CAFANS, weryfikacja ofert, kontrola jakości i budżet paczki do Polski.">
+  <meta name="theme-color" content="#f6f2ea">
+  <link rel="preconnect" href="https://www.ego-sport.pl">
+  <style>
+    :root{color-scheme:light;--paper:#f6f2ea;--ink:#232b2a;--muted:#4f5955;--accent:#783229;--line:#d8cfc1;--white:#fffdf8}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.65 system-ui,sans-serif}
+    a{color:var(--accent);text-underline-offset:.2em}
+    a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    h1,h2,h3,p,figure{margin:0}
+    h1,h2{font-family:Georgia,serif;line-height:1.05}
+    h1{font-size:clamp(2.85rem,8vw,6.25rem);letter-spacing:-.055em}
+    h2{font-size:clamp(1.9rem,4vw,3.15rem);letter-spacing:-.035em}
+    h3{line-height:1.3}
+    p{margin-top:.65rem}
+    .wrap{width:min(72rem,calc(100% - 2rem));margin-inline:auto}
+    header{border-bottom:1px solid var(--line)}
+    .mast{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-block:.9rem}
+    .brand{color:var(--ink);font-weight:850;text-decoration:none;letter-spacing:.055em}
+    .mast span,.note,figcaption{color:var(--muted);font-size:.9rem}
+    .hero{display:grid;grid-template-columns:1.35fr 1fr;align-items:center;gap:clamp(1rem,4vw,3rem);padding-block:clamp(1.4rem,5vw,3.75rem) 1.7rem}
+    .intro{max-width:53ch;font-size:1.08rem}
+    .hero figure{background:var(--white);border:1px solid var(--line)}
+    img{display:block;width:100%;height:auto;object-fit:contain;background:#fff}
+    .hero img{aspect-ratio:4/3}
+    figcaption{padding:.45rem .75rem}
+    .catalog{border-block:1px solid var(--line);padding-block:1.3rem}
+    .categories{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.5rem;margin-top:.9rem}
+    .categories a{display:flex;align-items:center;min-height:3rem;padding:.5rem .7rem;border:1px solid var(--line);background:var(--white);font-weight:700;text-decoration:none}
+    .categories a:hover{border-color:var(--accent);text-decoration:underline}
+    .section{margin-block:clamp(2.2rem,6vw,4.4rem)}
+    .gallery,.articles{display:grid;gap:.8rem;margin-top:1rem}
+    .gallery{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .gallery figure,.articles article{background:var(--white);border:1px solid var(--line)}
+    .gallery img{aspect-ratio:1/1}
+    .articles{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .articles article{padding:clamp(.85rem,2.5vw,1.55rem);border-top:3px solid var(--accent)}
+    .faq{margin-top:1rem;border-top:1px solid var(--line)}
+    details{padding:.8rem .2rem;border-bottom:1px solid var(--line)}
+    details p{max-width:72ch;padding-bottom:.3rem}
+    summary{font-weight:750;cursor:pointer}
+    footer{border-top:1px solid var(--line);padding-block:1rem 1.4rem}
+    @media(max-width:52rem){.categories{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:38rem){.hero,.articles{grid-template-columns:1fr}.categories,.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.hero img{aspect-ratio:16/9}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "pl",
+    "name": "HubBuy spreadsheet — pytania i odpowiedzi",
+    "mainEntity": [
+      {"@type":"Question","name":"Czym jest HubBuy spreadsheet?","acceptedAnswer":{"@type":"Answer","text":"To określenie używane dla zestawień linków i informacji o produktach. Ten polski przewodnik pomaga porównać oferty, a odsyłacze do kategorii prowadzą do katalogu CAFANS."}},
+      {"@type":"Question","name":"Czy zdjęcia QC potwierdzają autentyczność?","acceptedAnswer":{"@type":"Answer","text":"Zdjęcia QC pomagają ocenić widoczne wykonanie i zgodność wariantu. Autentyczność sprawdza się osobno, na podstawie pochodzenia produktu i dokumentów zakupu."}},
+      {"@type":"Question","name":"Co zrobić, gdy link do produktu nie działa?","acceptedAnswer":{"@type":"Answer","text":"Zapisz nazwę modelu, identyfikator oferty i wybrany wariant. Otwórz odpowiednią kategorię CAFANS i porównaj znalezioną ofertę z zapisanymi danymi."}},
+      {"@type":"Question","name":"Jak sprawdzić koszt wysyłki do Polski?","acceptedAnswer":{"@type":"Answer","text":"Podaj kraj dostawy, wagę i wymiary gotowej paczki w kalkulatorze wybranej usługi. Przed płatnością sprawdź końcową kwotę oraz to, które opłaty obejmuje."}}
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/eoava/">
+</head>
+<body>
+  <header>
+    <div class="wrap mast">
+      <a class="brand" href="https://www.cafans.com">CAFANS.COM</a>
+      <span>Poradnik zakupowy po polsku</span>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">HubBuy spreadsheet</h1>
+        <p class="intro">Zacznij od kategorii, sprawdź wariant u sprzedawcy, a potem porównaj wymiary, zdjęcia QC i koszt dostawy do Polski. Ten niezależny poradnik prowadzi do katalogu CAFANS.</p>
+      </div>
+      <figure>
+        <img src="https://www.ego-sport.pl/hpeciai/a63432ceca39f4d6581781f14515d795/pol_pl_Nike-buty-meskie-Air-Force-1-07-CW2288-111-biale-14786_1.webp" width="640" height="480" alt="Biały sneaker Nike Air Force 1 ’07 z perforowanym noskiem" fetchpriority="high">
+        <figcaption>Nike Air Force 1 ’07 · zdjęcie referencyjne</figcaption>
+      </figure>
+    </section>
+    <section class="catalog" aria-labelledby="catalog-title">
+      <h2 id="catalog-title">Kategorie produktów</h2>
+      <nav class="categories" aria-labelledby="catalog-title">
+        <a href="https://cafans.com/category-911-Shoes.html">Buty</a>
+        <a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Bluzy i swetry</a>
+        <a href="https://cafans.com/category-913-T-Shirts.html">T-shirty</a>
+        <a href="https://cafans.com/category-914-Jackets.html">Kurtki</a>
+        <a href="https://cafans.com/category-915-Pants%2FShorts.html">Spodnie i szorty</a>
+        <a href="https://cafans.com/category-916-Headwear.html">Nakrycia głowy</a>
+        <a href="https://cafans.com/category-917-Sets.html">Komplety</a>
+        <a href="https://cafans.com/category-918-underwear%2Funderpants.html">Bielizna</a>
+        <a href="https://cafans.com/category-919-Jersey.html">Koszulki sportowe</a>
+        <a href="https://cafans.com/category-920-Accessories.html">Akcesoria</a>
+      </nav>
+    </section>
+    <section class="section" aria-labelledby="guide-title">
+      <h2 id="guide-title">Od wyszukania do wysyłki</h2>
+      <div class="articles">
+        <article>
+          <h3>Katalog HubBuy i linki do produktów</h3>
+          <p>Gdy wpis z zestawienia prowadzi do Weidian, Taobao lub 1688, otwórz aktualną stronę sprzedawcy. Porównaj nazwę modelu, identyfikator produktu, kolor i wybrany wariant. W tej samej ofercie kilka opcji może mieć różne ceny i odrębne zdjęcia. Zapisz dokładny link i sprawdź dostępność rozmiaru przed zamówieniem.</p>
+        </article>
+        <article>
+          <h3>Dobór rozmiaru obuwia i odzieży</h3>
+          <p>W tabeli rozmiarów butów sprawdź, czy centymetry oznaczają długość stopy czy wkładki. Zmierz obie stopy i użyj dłuższego wyniku. Przy bluzie zmierz na płasko szerokość pod pachami, długość rękawa i długość całkowitą w ubraniu, które dobrze leży. Przy spodniach porównaj pas i długość nogawki, a przy czapce zakres regulacji obwodu.</p>
+        </article>
+        <article>
+          <h3>Zdjęcia QC i kontrola jakości</h3>
+          <p>Zdjęcia z magazynu powinny przedstawiać zamówiony kolor i rozmiar. W butach przyjrzyj się podeszwie, szwom oraz obu piętom. W odzieży porównaj metkę rozmiaru, mankiety i pracę zamka. Przy bransoletce poproś o zbliżenie zapięcia oraz pomiar obwodu. Gdy brakuje ujęcia, poproś o zdjęcie konkretnego miejsca przed nadaniem paczki.</p>
+        </article>
+        <article>
+          <h3>Wysyłka HubBuy do Polski i koszt w PLN</h3>
+          <p>Porównaj cenę produktu, dostawę krajową do magazynu, opłaty usługi i transport międzynarodowy. Sprawdź, czy przewoźnik stosuje wagę rzeczywistą lub gabarytową, oraz czy stawka obejmuje opłaty importowe. Przy przeliczeniu na złote uwzględnij kurs i koszty operatora płatności. Gdy łączysz zakupy w jedną paczkę, przelicz koszt po ustaleniu wymiarów opakowania.</p>
+        </article>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Galeria modeli</h2>
+      <p class="note">Zdjęcia referencyjne pokazują wygląd modeli. Dostępność i wariant sprawdzisz w aktualnej ofercie.</p>
+      <div class="gallery">
+        <figure>
+          <img src="https://assets.christiandior.com/is/image/diorprod/113J698A0531C989_SBG_E01-1?%24r9x10_raw%24=&amp;crop=0%2C0%2C4000%2C5000&amp;wid=480" width="480" height="480" alt="Czarna bluza Dior CD Icon z kapturem" loading="lazy" decoding="async">
+          <figcaption>Dior CD Icon</figcaption>
+        </figure>
+        <figure>
+          <img src="https://brandol.jp/upload/save_image/gu-200035-kqwbg-9791-l_1.jpg" width="480" height="480" alt="Beżowa czapka Gucci z daszkiem i wzorem GG" loading="lazy" decoding="async">
+          <figcaption>Gucci GG Canvas</figcaption>
+        </figure>
+        <figure>
+          <img src="https://kream-phinf.pstatic.net/MjAyNTA3MzFfNzAg/MDAxNzUzODk4MTE1MjI3.WHGujKqNd9mT7aHEnAwoupW_atTkD6iQczFjUwc4HVMg.QIMaa4Wt7_-kLRs4KpRV-NQhSMFSfTE8Ggprf8CyWYwg.PNG/a_2fba6b33de3f40fc847572fc7a5614b4.png" width="480" height="480" alt="Bransoletka Hermès Clic H z pomarańczową emalią i złotym zapięciem" loading="lazy" decoding="async">
+          <figcaption>Hermès Clic H</figcaption>
+        </figure>
+        <figure>
+          <img src="https://de.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-trainer-sneaker--BL9U6PMI01_PM2_Front%20view.png?hei=480&amp;wid=480" width="480" height="480" alt="Biały sneaker Louis Vuitton LV Trainer widziany od przodu" loading="lazy" decoding="async">
+          <figcaption>Louis Vuitton LV Trainer</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="faq-title">
+      <h2 id="faq-title">Najczęstsze pytania</h2>
+      <div class="faq">
+        <details open><summary>Czym jest HubBuy spreadsheet?</summary><p>To określenie używane dla zestawień linków i informacji o produktach. Ten polski przewodnik pomaga porównać oferty, a odsyłacze do kategorii prowadzą do katalogu CAFANS.</p></details>
+        <details><summary>Czy zdjęcia QC potwierdzają autentyczność?</summary><p>Zdjęcia QC pomagają ocenić widoczne wykonanie i zgodność wariantu. Autentyczność sprawdza się osobno, na podstawie pochodzenia produktu i dokumentów zakupu.</p></details>
+        <details><summary>Co zrobić, gdy link do produktu nie działa?</summary><p>Zapisz nazwę modelu, identyfikator oferty i wybrany wariant. Otwórz odpowiednią kategorię CAFANS i porównaj znalezioną ofertę z zapisanymi danymi.</p></details>
+        <details><summary>Jak sprawdzić koszt wysyłki do Polski?</summary><p>Podaj kraj dostawy, wagę i wymiary gotowej paczki w kalkulatorze wybranej usługi. Przed płatnością sprawdź końcową kwotę oraz to, które opłaty obejmuje.</p></details>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap mast">
+      <span>Niezależny przewodnik zakupowy</span>
+      <a href="https://www.cafans.com">Przejdź do CAFANS</a>
+    </div>
+  </footer>
+</body>
+</html>
